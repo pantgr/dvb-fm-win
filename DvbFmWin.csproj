@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <PlatformTarget>x64</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AssemblyName>DvbFmWin</AssemblyName>
+    <RootNamespace>DvbFmWin</RootNamespace>
+    <ApplicationIcon>app.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <!-- Native librtlsdr — official rtl-sdr-blog v1.3.6 x64 (Link → output root, next to the exe).
+       🔴 The stock rtlsdr.dll (337920B) is STATIC-libusb (self-contained; the x64 Release.zip does
+       NOT ship libusb-1.0.dll). pthreadVC2 + msvcr100 = runtime deps. Native FC0012 gain = 5 LNA steps. -->
+  <ItemGroup>
+    <None Include="native\rtlsdr.dll" Link="rtlsdr.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="native\pthreadVC2.dll" Link="pthreadVC2.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="native\msvcr100.dll" Link="msvcr100.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="NAudio" Version="2.3.0" />
+    <!-- 🔴 Full DI + structured logging with log levels -->
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.0" />
+    <PackageReference Include="Serilog" Version="4.2.0" />
+    <PackageReference Include="Serilog.Extensions.Hosting" Version="9.0.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
+    <PackageReference Include="Serilog.Sinks.File" Version="6.0.0" />
+  </ItemGroup>
+
+</Project>

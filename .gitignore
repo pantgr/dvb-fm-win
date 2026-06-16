@@ -1,0 +1,40 @@
+# ---- build output ----
+bin/
+obj/
+
+# ---- logs & runtime state ----
+logs/
+last_station.txt
+last_gain.txt
+last_vol.txt
+memories.txt
+stations.txt
+scan-sweep.txt
+*.lnk
+
+# ---- capture / test artifacts (binary, not for the repo) ----
+*.bin
+*.wav
+*.f32
+*.png
+
+# ---- internal dev notes (Greek, project-private) ----
+SKILL.md
+FC0012.md
+PORT_UNDERSTANDING.md
+RTLSDR_API.md
+RTL2832.md
+
+# ---- offline validation scripts (need local captures) ----
+*.py
+
+# ---- third-party reference sources (not part of the app build) ----
+realtek/
+ref_*.c
+
+# ---- IDE ----
+.vs/
+*.user
+
+# NOTE: native/ (rtlsdr.dll, pthreadVC2.dll, msvcr100.dll) IS committed — needed to build/run.
+# NOTE: dist/ (self-contained published build) IS committed — ready-to-run executable + all libs.
