@@ -36,5 +36,9 @@ ref_*.c
 .vs/
 *.user
 
+# ---- published binary: shipped as a GitHub Release asset (zip), NOT committed in the tree ----
+dist/
+*.zip
+
 # NOTE: native/ (rtlsdr.dll, pthreadVC2.dll, msvcr100.dll) IS committed — needed to build/run.
-# NOTE: dist/ (self-contained published build) IS committed — ready-to-run executable + all libs.
+# NOTE: the ready-to-run binary lives in the GitHub Releases (DvbFmWin-win-x64.zip), not in the tree.

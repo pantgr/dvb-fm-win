@@ -28,10 +28,12 @@ works but has limited (and quirky) gain control.
 
 ## Run
 
-A ready-to-run, self-contained build (no .NET install required) lives in [`dist/`](dist/):
+Download the ready-to-run, self-contained build (no .NET install required) from the
+[**Releases**](https://github.com/pantgr/dvb-fm-win/releases) page — `DvbFmWin-win-x64.zip`.
+Unzip and run:
 
 ```
-dist\DvbFmWin.exe ui 92.0
+DvbFmWin.exe ui 92.0
 ```
 
 Modes: `ui [freq]` (the WinForms radio), `live [freq]` (console), plus offline/test harnesses.
